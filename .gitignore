@@ -99,3 +99,19 @@ RRR/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Prov
 
 # Auto-generated scenes by play mode tests
 RRR/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+#FMOD
+
+# Never ignore DLLs in the FMOD subfolder.
+!RRR/[Aa]ssets/Plugins/FMOD/**/lib/*
+
+# Don't ignore images and gizmos used by FMOD in the Unity Editor.
+!RRR/[Aa]ssets/Gizmos/FMOD/*
+!RRR/[Aa]ssets/Editor Default Resources/FMOD/*
+
+# Ignore the Cache folder since it is updated locally.
+!RRR/[Aa]ssets/Plugins/FMOD/Cache/*
+
+# Ignore bank files in the StreamingAssets folder.
+!RRR/[Aa]ssets/StreamingAssets/**/*.bank
+!RRR/[Aa]ssets/StreamingAssets/**/*.bank.meta

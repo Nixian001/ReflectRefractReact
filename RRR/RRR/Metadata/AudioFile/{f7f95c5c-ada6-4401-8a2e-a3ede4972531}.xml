@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f7f95c5c-ada6-4401-8a2e-a3ede4972531}">
+		<property name="assetPath">
+			<value>Sine_MainMenu_Loop.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>32</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{92ce56f4-3447-452a-bde2-86ec2ccf3e5f}</destination>
+		</relationship>
+	</object>
+</objects>

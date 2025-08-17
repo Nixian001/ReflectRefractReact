@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{65e694f2-69f2-48fe-a6c1-3ef57718d8e9}">
+		<property name="assetPath">
+			<value>SineNixProd.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.182291666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{92ce56f4-3447-452a-bde2-86ec2ccf3e5f}</destination>
+		</relationship>
+	</object>
+</objects>

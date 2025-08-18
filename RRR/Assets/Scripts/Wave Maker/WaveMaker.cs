@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -85,7 +86,7 @@ namespace Nixian.Waves
                     lineRenderer.SetPosition(lineRenderer.positionCount - 1, tracePosition);
 
                     if (hit.collider.CompareTag("Solid")) break;
-                    else if (hit.collider.CompareTag("Reflective")) 
+                    else if (hit.collider.CompareTag("Reflective"))
                     {
                         GameObject mirror = hit.collider.gameObject;
                         Vector2 normal = hit.normal;
@@ -96,6 +97,11 @@ namespace Nixian.Waves
                         Debug.DrawLine(hit.point, traceDir + hit.point, Color.cyan);
 
                         lineRenderer.positionCount++;
+                    }
+                    else if (hit.collider.CompareTag("Reciver"))
+                    {
+                        hit.collider.GetComponent<WaveReciver>().given.AddRange(waves);
+                        break;
                     }
                 }
                 tracePosition += traceDir * marchDistance;
@@ -177,6 +183,16 @@ namespace Nixian.Waves
     public struct Wave
     {
         public colors color;
+
+        public static bool operator ==(Wave w1, Wave w2)
+        {
+            return w1.color == w2.color;
+        }
+
+        public static bool operator !=(Wave w1, Wave w2)
+        {
+            return !(w1 == w2);
+        }
     };
 
     public enum colors

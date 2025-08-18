@@ -16,8 +16,11 @@ public class ClickAndDrag : MonoBehaviour
 
             if (targetObject)
             {
-                selectedObject = targetObject.transform.gameObject;
-                offset = selectedObject.transform.position - mousePosition;
+                if (targetObject.gameObject.layer != 3)
+                {
+                    selectedObject = targetObject.transform.gameObject;
+                    offset = selectedObject.transform.position - mousePosition;
+                }
             }
         }
 
@@ -28,9 +31,9 @@ public class ClickAndDrag : MonoBehaviour
             if (targetObject)
             {
                 if (Input.mouseScrollDelta.y > 0)
-                    targetObject.transform.Rotate(Vector3.forward, 10f);
+                    targetObject.transform.Rotate(Vector3.forward, 15f);
                 else
-                    targetObject.transform.Rotate(Vector3.forward, -10f);
+                    targetObject.transform.Rotate(Vector3.forward, -15f);
             }
         }
 

@@ -7,14 +7,15 @@ TagManager:
   - Solid
   - Reflective
   - Refractive
+  - Reciver
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Undraggable
   - Water
   - UI
-  - 
+  - Spawner
   - 
   - 
   - 

@@ -5,7 +5,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject prefab;
     public Transform spawnLocation;
-    public int quantity;
+    public uint quantity;
     public TMP_Text label;
     public GameObject spawnedItem;
 

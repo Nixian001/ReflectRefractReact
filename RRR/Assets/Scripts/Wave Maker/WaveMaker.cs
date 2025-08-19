@@ -10,11 +10,17 @@ namespace Nixian.Waves
         public Wave[] waves;
         public float marchDistance = 0.1f;
         public float amplitude;
-        public int sineRes = 10000;
+        public int sineRes = 10007;
         public Vector2 startPos;
         public Vector2 direction = new Vector2(1, 0);
         public LineRenderer lineRenderer;
         public LineRenderer sineRenderer;
+
+        public bool isThroughGlass = false;
+        public Vector2 glassNormal;
+
+        private float airRI = 1.000277f;
+        private float glassRI = 1.5234f;
 
         private LightColor[] colors = {
             new() { name = "violet", GHz = 0.750f, nm = 400, hue=new Color() { r=131,g=0  ,b=181} },
@@ -79,7 +85,16 @@ namespace Nixian.Waves
                     break;
                 }
 
+
                 RaycastHit2D hit = Physics2D.Raycast(tracePosition, direction, marchDistance);
+
+                if (isThroughGlass && !hit.collider)
+                {
+                    isThroughGlass = false;
+                    traceDir = LightRefraction.CalculateRefraction(traceDir, glassNormal, glassRI, airRI);
+                    lineRenderer.SetPosition(lineRenderer.positionCount - 1, tracePosition);
+                    lineRenderer.positionCount++;
+                }
 
                 if (hit.collider != null)
                 {
@@ -123,12 +138,22 @@ namespace Nixian.Waves
                             lineRenderer.positionCount++;
 
                             tracePosition = hit.point + traceDir * 0.001f;
+                            Debug.DrawLine(hit.point, tracePosition);
                         }
                     }
                     else if (hit.collider.CompareTag("Reciver"))
                     {
                         hit.collider.GetComponent<WaveReciver>().given.AddRange(waves);
                         break;
+                    }
+                    else if (hit.collider.CompareTag("Refractive") && !isThroughGlass)
+                    {
+                        lineRenderer.SetPosition(lineRenderer.positionCount - 1, tracePosition);
+                        lineRenderer.positionCount++;
+
+                        isThroughGlass = true;
+                        glassNormal = hit.normal;
+                        traceDir = LightRefraction.CalculateRefraction(traceDir, glassNormal, airRI, glassRI);
                     }
                 }
                 tracePosition += traceDir * marchDistance;
@@ -163,7 +188,7 @@ namespace Nixian.Waves
                 Vector2 direction = (finish - start).normalized;
                 Vector2 normal = new Vector2(-direction.y, direction.x);
 
-                int segmentPoints = Mathf.RoundToInt((segmentLength / totalLength) * sineRes);
+                int segmentPoints = Mathf.FloorToInt((segmentLength / totalLength) * sineRes);
                 if (segmentPoints == 0)
                     continue;
 

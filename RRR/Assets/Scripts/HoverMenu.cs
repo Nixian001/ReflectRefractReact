@@ -53,6 +53,12 @@ public class HoverMenu : MonoBehaviour
                     description.text += "\n (Fixed)";
                 }
             }
+            else if (hit.collider.CompareTag("OneWayMirror"))
+            {
+                titlebar.text = "One Way Mirror";
+                description.text = "One side Reflects light and the other lets it through\n - Dark: Lets light through\n - Light: Reflects Light";
+
+            }
 
             isHovering = true;
         }

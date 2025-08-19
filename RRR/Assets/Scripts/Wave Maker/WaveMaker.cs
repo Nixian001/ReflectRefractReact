@@ -85,7 +85,10 @@ namespace Nixian.Waves
                 {
                     lineRenderer.SetPosition(lineRenderer.positionCount - 1, tracePosition);
 
-                    if (hit.collider.CompareTag("Solid")) break;
+                    if (hit.collider.CompareTag("Solid"))
+                    {
+                        break;
+                    }
                     else if (hit.collider.CompareTag("Reflective"))
                     {
                         GameObject mirror = hit.collider.gameObject;
@@ -97,6 +100,30 @@ namespace Nixian.Waves
                         Debug.DrawLine(hit.point, traceDir + hit.point, Color.cyan);
 
                         lineRenderer.positionCount++;
+                    }
+                    else if (hit.collider.CompareTag("OneWayMirror"))
+                    {
+                        Vector2 mirrorDir = hit.collider.transform.right;
+
+                        if (Vector2.Dot(traceDir, mirrorDir) < 0)
+                        {
+                            GameObject mirror = hit.collider.gameObject;
+                            Vector2 normal = hit.normal;
+                            Debug.DrawLine(hit.point, -normal + hit.point, Color.magenta);
+
+                            traceDir = traceDir - 2 * Vector2.Dot(traceDir, normal) * normal;
+
+                            Debug.DrawLine(hit.point, traceDir + hit.point, Color.cyan);
+
+                            lineRenderer.positionCount++;
+                        }
+                        else
+                        {
+                            lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
+                            lineRenderer.positionCount++;
+
+                            tracePosition = hit.point + traceDir * 0.001f;
+                        }
                     }
                     else if (hit.collider.CompareTag("Reciver"))
                     {

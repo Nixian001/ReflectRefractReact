@@ -30,7 +30,7 @@ namespace Nixian.Waves
                     PlayerPrefs.Save();
                 }
 
-
+                ClickAndDrag.Instance.canDrag = false;
                 winScreen.SetActive(true);
             }
         }

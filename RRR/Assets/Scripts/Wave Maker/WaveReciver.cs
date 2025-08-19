@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Unity.VisualScripting;
 
 namespace Nixian.Waves 
 {
@@ -13,13 +14,34 @@ namespace Nixian.Waves
 
         private void Start()
         {
-            expected.Sort();
+            expected = BubbleSort(expected);
+        }
+
+        public static List<Wave> BubbleSort(List<Wave> waves)
+        {
+            int i, j;
+            int N = waves.Count;
+
+            for (j = N - 1; j > 0; j--)
+            {
+                for (i = 0; i < j; i++)
+                {
+                    if ((int)waves[i].color > (int)waves[i + 1].color)
+                    {
+                        var temp = waves[i];
+                        waves[i] = waves[i + 1];
+                        waves[i + 1] = temp;
+                    }
+                }
+            }
+
+            return waves;
         }
 
         private void Update()
         {
             given = given.Distinct().ToList();
-            given.Sort();
+            given = BubbleSort(given);
 
             if (expected.Count != given.Count)
             {

@@ -11,9 +11,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void Start()
     {
-        spawnedItem = Instantiate(prefab);
-        spawnedItem.transform.position = spawnLocation.position;
-        label.text = $"{prefab.name} x{quantity}";
+        Taken();
     }
 
     private void Update()
@@ -24,14 +22,14 @@ public class ItemSpawner : MonoBehaviour
         }
         if (Vector2.Distance(spawnedItem.transform.position, spawnLocation.position) > 0.1f)
         {
+            quantity--;
+
             Taken();
         }
     }
 
     public void Taken()
     {
-        quantity--;
-
         if (quantity > 0)
         {
             spawnedItem = Instantiate(prefab);

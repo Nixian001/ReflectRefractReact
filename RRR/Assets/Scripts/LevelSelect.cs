@@ -25,7 +25,8 @@ public class LevelSelect : MonoBehaviour
         for (int i = 0; i <= highLev; i++)
         {
             buttons[i].interactable = true;
-            buttons[i].onClick.AddListener(delegate { LoadLevel(i-1); } );
+            int localIndex = i;
+            buttons[i].onClick.AddListener(delegate { LoadLevel(localIndex); } );
         }
     }
 

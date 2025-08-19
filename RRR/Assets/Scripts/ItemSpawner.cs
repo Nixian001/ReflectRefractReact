@@ -13,6 +13,7 @@ public class ItemSpawner : MonoBehaviour
     {
         spawnedItem = Instantiate(prefab);
         spawnedItem.transform.position = spawnLocation.position;
+        label.text = $"{prefab.name} x{quantity}";
     }
 
     private void Update()

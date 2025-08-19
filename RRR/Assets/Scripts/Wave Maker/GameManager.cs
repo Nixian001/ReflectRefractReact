@@ -24,7 +24,7 @@ namespace Nixian.Waves
                 int l = int.Parse(n);
                 l++; // Levels start from 0
 
-                if (high !>= l)
+                if (high <= l)
                 {
                     PlayerPrefs.SetInt("Levels", l);
                     PlayerPrefs.Save();

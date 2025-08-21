@@ -15,6 +15,7 @@ public class HoverMenu : MonoBehaviour
     {
         Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
+        
         if (hit.collider)
         {
             if (hit.collider.GetComponent<WaveMaker>())
@@ -59,6 +60,11 @@ public class HoverMenu : MonoBehaviour
                 description.text = "One side Reflects light and the other lets it through\n - Dark: Lets light through\n - Light: Reflects Light";
 
             }
+            else if (hit.collider.CompareTag("Reflective"))
+            {
+                titlebar.text = "Glass Block";
+                description.text = "Light Refracts through it. This is because light travels slower slightly slower when going through glass and bends.";
+            }
 
             isHovering = true;
         }
@@ -70,7 +76,10 @@ public class HoverMenu : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Input.mousePosition;
+        transform.position = new Vector2(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width - 335), Mathf.Clamp(Input.mousePosition.y, 135, Screen.height));
+
+
+
         if (isHovering)
         {
             bg.CrossFadeAlpha(1f, 0.1f, true);

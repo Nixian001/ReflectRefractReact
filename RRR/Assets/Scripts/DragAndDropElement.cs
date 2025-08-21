@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+using FMODUnity;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,6 +33,9 @@ public class ClickAndDrag : MonoBehaviour
                     {
                         selectedObject = col.transform.gameObject;
                         offset = selectedObject.transform.position - mousePosition;
+
+                        RuntimeManager.PlayOneShot("event:/SFX/Game/Glass Up");
+
                         break;
                     }
                 }
@@ -48,6 +53,9 @@ public class ClickAndDrag : MonoBehaviour
                             col.transform.Rotate(Vector3.forward, 15f);
                         else
                             col.transform.Rotate(Vector3.forward, -15f);
+                        RuntimeManager.PlayOneShot("event:/SFX/Game/Glass Up");
+                        RuntimeManager.PlayOneShot("event:/SFX/Game/Glass Down");
+
                     }
                 }
             }
@@ -60,11 +68,12 @@ public class ClickAndDrag : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && selectedObject)
             {
                 selectedObject = null;
+                RuntimeManager.PlayOneShot("event:/SFX/Game/Glass Down");
             }
         }
         else
         {
-                selectedObject = null;
+            selectedObject = null;
         }
     }
 }

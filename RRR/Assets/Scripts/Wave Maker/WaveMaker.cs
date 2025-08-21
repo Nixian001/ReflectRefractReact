@@ -17,7 +17,6 @@ namespace Nixian.Waves
         public LineRenderer sineRenderer;
 
         public bool isThroughGlass = false;
-        public Vector2 glassNormal;
 
         private float airRI = 1.000277f;
         private float glassRI = 1.5234f;
@@ -90,8 +89,9 @@ namespace Nixian.Waves
 
                 if (isThroughGlass && !hit.collider)
                 {
+                    RaycastHit2D hit2 = Physics2D.Raycast(tracePosition, direction, -marchDistance);
                     isThroughGlass = false;
-                    traceDir = LightRefraction.CalculateRefraction(traceDir, glassNormal, glassRI, airRI);
+                    traceDir = LightRefraction.CalculateRefraction(traceDir, -hit2.normal, glassRI, airRI);
                     lineRenderer.SetPosition(lineRenderer.positionCount - 1, tracePosition);
                     lineRenderer.positionCount++;
                 }
@@ -152,8 +152,7 @@ namespace Nixian.Waves
                         lineRenderer.positionCount++;
 
                         isThroughGlass = true;
-                        glassNormal = hit.normal;
-                        traceDir = LightRefraction.CalculateRefraction(traceDir, glassNormal, airRI, glassRI);
+                        traceDir = LightRefraction.CalculateRefraction(traceDir, hit.normal, airRI, glassRI);
                     }
                 }
                 tracePosition += traceDir * marchDistance;

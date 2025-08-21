@@ -571,6 +571,14 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 1113195752551381363, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017594508357043917, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2120749428245331948, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -626,6 +634,10 @@ PrefabInstance:
     - target: {fileID: 6749618549820527611, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797824343110521677, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7563311863881710968, guid: c46fcee30f38c944285fd8810ab086c3, type: 3}
       propertyPath: m_RenderMode

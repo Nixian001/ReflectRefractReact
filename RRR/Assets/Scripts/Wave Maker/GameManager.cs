@@ -12,10 +12,11 @@ namespace Nixian.Waves
         public List<WaveReciver> goals;
 
         public GameObject winScreen;
+        bool hasFinished = false;
 
         private void LateUpdate()
         {
-            if (goals.All(x => x.isDone))
+            if (goals.All(x => x.isDone) && !hasFinished)
             {
                 int high = PlayerPrefs.GetInt("Levels");
 
@@ -32,6 +33,10 @@ namespace Nixian.Waves
 
                 ClickAndDrag.Instance.canDrag = false;
                 winScreen.SetActive(true);
+
+                hasFinished = true;
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Level Complete");
             }
         }
     }

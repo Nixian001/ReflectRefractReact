@@ -62,7 +62,6 @@ namespace Nixian.Waves
                     {
                         c = (c + colors[(int)waves[j].color].hue) / 2;
                     }
-
                 }
             }
             else

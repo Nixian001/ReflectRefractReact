@@ -76,9 +76,7 @@ public class HoverMenu : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = new Vector2(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width - 335), Mathf.Clamp(Input.mousePosition.y, 135, Screen.height));
-
-
+        transform.position = new Vector2(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width - 335 - 255), Mathf.Clamp(Input.mousePosition.y, 135, Screen.height));
 
         if (isHovering)
         {

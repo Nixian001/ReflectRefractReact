@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7805868067853135969}
   - component: {fileID: 271335890138819754}
   - component: {fileID: 4507127335918802854}
+  - component: {fileID: 8325167263851693162}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
+  canDrag: 0
 --- !u!114 &4507127335918802854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +62,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goals:
   - {fileID: 0}
-  winScreen: {fileID: 0}
+  finishCooldown: 0
+  win: {fileID: 0}
+  completeSlider: {fileID: 0}
+  riserSFX: {fileID: 8325167263851693162}
+--- !u!114 &8325167263851693162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451422766791933426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2034799319
+      Data2: 1146487719
+      Data3: 1976504502
+      Data4: -986059410
+    Path: event:/SFX/Game/Riser
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

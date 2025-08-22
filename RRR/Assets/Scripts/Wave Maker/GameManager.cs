@@ -18,6 +18,13 @@ namespace Nixian.Waves
         public Slider completeSlider;
         bool hasFinished = false;
 
+        public FMODUnity.StudioEventEmitter riserSFX;
+
+        private void Start()
+        {
+            riserSFX.Play();
+        }
+
         private void LateUpdate()
         {
             if (goals.All(x => x.isDone))
@@ -45,6 +52,7 @@ namespace Nixian.Waves
                     hasFinished = true;
 
                     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Level Complete");
+                    riserSFX.Stop();
                 }
             }
             else
@@ -53,6 +61,7 @@ namespace Nixian.Waves
                 finishCooldown = Mathf.Clamp01(finishCooldown);
             }
 
+            riserSFX.SetParameter("i", finishCooldown);
             completeSlider.value = finishCooldown;
         }
     }

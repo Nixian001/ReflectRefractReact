@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: RRR/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638914012081563541
+  lastModified: 638914107853523763
   FileSizes:
   - Name: Desktop
-    Value: 371744
+    Value: 381312
   Exists: 1
 --- !u!114 &-8521835716056771153
 MonoBehaviour:
@@ -143,10 +143,10 @@ MonoBehaviour:
   Path: RRR/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638914012081644346
+  lastModified: 638914107853579113
   FileSizes:
   - Name: Desktop
-    Value: 994
+    Value: 1074
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -169,12 +169,13 @@ MonoBehaviour:
   - {fileID: 4438932453256732514}
   - {fileID: -920240672271859592}
   - {fileID: -5546389013169614967}
+  - {fileID: 6353799377934363408}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8723353153329575531}
   StringsBanks:
   - {fileID: -13535381302623418}
-  cacheTime: 638914012081644346
+  cacheTime: 638914107853579113
   cacheVersion: 131632
 --- !u!114 &4438932453256732514
 MonoBehaviour:
@@ -203,3 +204,55 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 428
+--- !u!114 &6353799377934363408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Game/Riser
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Game/Riser
+  Guid:
+    Data1: -2034799319
+    Data2: 1146487719
+    Data3: 1976504502
+    Data4: -986059410
+  Banks:
+  - {fileID: -8723353153329575531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8147039506760812073}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &8147039506760812073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Riser/i
+  m_EditorClassIdentifier: 
+  Name: i
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2156149657
+    data2: 1910237932
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
